@@ -35,7 +35,7 @@ const RestaurantScreen = () => {
     <ScrollView className="flex-1 bg-white">
       <View className="relative">
         <Image
-          className="w-full h-56 bg-gray-200"
+          className="w-full h-56 white"
           source={{ uri: urlFor(imgUrl).url() }}
         />
         <TouchableOpacity
