@@ -5,9 +5,10 @@ import {
   Image,
   TextInput,
   ScrollView,
+  StatusBar,
 } from "react-native";
-import React, { useEffect, useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
+import React, { useEffect, useState } from "react";
 import * as Icons from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
@@ -36,6 +37,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={GlobalStyles.droidSafeArea}>
+      {/* <StatusBar backgroundColor="white" barStyle="dark-content" /> */}
       {/* Header */}
       <View className="flex-row pb-3 items-center mx-4 space-x-2">
         <Image
