@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -14,6 +14,9 @@ import { urlFor } from "../sanity";
 import * as Icons_S from "react-native-heroicons/solid";
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { selectBasketTotal } from "../features/basketSlice";
+import { setRestaurant } from "../features/restauranSlice";
 
 const RestaurantScreen = () => {
   const {
@@ -31,10 +34,31 @@ const RestaurantScreen = () => {
     },
   } = useRoute();
 
+  const basketTotal = useSelector(selectBasketTotal);
   const navigation = useNavigation();
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      setRestaurant({
+        id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        short_description,
+        dishes,
+        long,
+        lat,
+      })
+    );
+  }, []);
+
   return (
     <>
       <BasketIcon />
+
       <ScrollView className="flex-1 bg-white ">
         <View className="relative">
           <Image
@@ -88,7 +112,7 @@ const RestaurantScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <View>
+        <View className="pb-40">
           <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
 
           {/* Dish-Rows */}

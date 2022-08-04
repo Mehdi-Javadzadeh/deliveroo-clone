@@ -28,7 +28,7 @@ const DishRow = ({ id, name, description, price, image }) => {
     dispatch(removeFromBasket({ id }));
   };
 
-  console.log(items);
+  // console.log(items);
   return (
     <>
       <TouchableOpacity
@@ -37,7 +37,7 @@ const DishRow = ({ id, name, description, price, image }) => {
           isPressed && "border-b-0"
         }`}
       >
-        <View className="flex-row">
+        <View className="flex-row items-center">
           <View className="flex-1 pr-2">
             <Text className="text-lg mb-1">{name}</Text>
             <Text className="text-gray-400 text-justify">{description}</Text>
